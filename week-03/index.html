@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 - Coding for the Web</title>
+
+    <style>
+        body {
+            max-width: 70em;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Week 3: Control Flow</h1>
+
+    <p>Open your browser's developer tools and view the console.</p>
+    <p> if everything is set up correctly, you should see a message in the console.</p>
+
+    <script>
+        console.log("welcome to week 3")
+        var username = "Elgin" ;
+
+        console.log ("my name is" +username);
+
+        //var age = 20;
+
+        var age = prompt ("what is your age?");
+        console.log (parseInt(age));
+
+        if (typeof parseInt(age) != Number) {
+            alert("yo thats not a number");
+        }
+
+        console.log ("my age is" +age);
+        //console.log(typeof age);
+
+        var years = prompt ("enter a number of years...");
+        if (typeof parseInt(years) != Number){
+            alert ("yo thats not a number");
+        }     
+      
+        //in [years] years, you will be [newage]
+
+        //first add years to age
+        // but first we need to convert them to numbers/integers
+        var newage = parseInt (age) + parseInt(years);
+        console.log ("In" +years+ "years, you will be" +newage)
+        //console.log(typeof newage);
+
+        var drinkingAge = 21;
+        //console.log(typeof drinkingAge);
+
+        var canDrink = newage >= drinkingAge;
+        //console.log(canDrink);
+        //console.log(typeof canDrink);
+
+        // in [years] years, you [can or cannot] legally drink.
+
+        if (canDrink) {
+            console.log ("if you want to you can");
+        } else{
+            console.log ("no, you can't");
+        }
+
+
+
+    </script>
+</body>
+</html>
