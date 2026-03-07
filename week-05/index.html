@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 05 - Functions and the DOM</title>
+
+    <style>
+ h1, h2{
+    color: red;
+ }
+
+ #div1 {
+    color: blue;
+ }
+
+ #div2 {
+    color: brown;
+ }
+
+.display-none {
+    display:none!important;
+}
+
+.red-text {
+    color: red;
+    
+}
+    </style>
+</head>
+<body>
+    <h1 class="display-none"> Welcome to Week 05</h1>
+    <h2>this is my H2</h2>
+
+    <div id ="div1">
+        <p>this is my first div</p>
+    </div>
+    <div id="div2">
+        <h3>this is div2</h3>
+        <p>this is my second div</p>
+    </div>
+
+    <script>
+        //var numberGrade = prompt("what was your number grade?");
+          //  numberGrade = parseInt(numberGrade);
+
+      //  var letterGrade = "A";
+
+      //  var nextNumberGrade;
+       // var difference = 0;
+
+       // if (numberGrade < 90 && numberGrade >=80) {
+        //    letterGrade = "B"
+        //    nextNumberGrade = 90;
+       // } //else if (numberGrade < 80 &&  numberGrade >= 70) {
+           // letterGrade = "C"
+            //nextNumberGrade = 80;
+      //  }
+
+        //difference = nextNumberGrade - numberGrade;
+
+        //alert(letterGrade);
+
+        //alert("Your Number Grade Is: " + numberGrade)
+        //alert("You are" + difference + " away from the next Letter grade");
+
+        function addTen(number) {
+            console.log(number+10);
+        }
+
+        function calculateLetterGrade(numberGrade, anotherNumber) {
+
+        //this is where the logic to calculate a letter grade goes.
+
+            alert(numberGrade)
+            alert(anotherNumber)
+        }
+
+        //calculateLetterGrade(90, 400);
+        //calculateLetterGrade(40, 10);
+        //calculateLetterGrade(45, 100);
+        
+        addTen(50);
+        addTen(45);
+        addTen(500000);
+        addTen("20");
+
+        var header = document.querySelector("h1");
+        console.log(typeof header);
+        header.innerHTML = "Hello! this is my new content!";
+
+
+        //header.classList.add('display-none');
+
+        var myParagraph = document.querySelector("#div2 p");
+        
+
+
+
+
+
+    </script>
+</body>
+</html>
