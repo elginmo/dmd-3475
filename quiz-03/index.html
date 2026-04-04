@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create A Playlist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Create a Playlist</h1>
+
+    <!-- Now Playing -->
+    <h2 id="nowPlaying">Now Playing: None</h2>
+
+    <!-- Input -->
+    <div class="inputArea">
+        <input type="text" id="newSong" placeholder="enter a new song">
+        <button id="addSong">Add</button>
+    </div>
+
+    <!-- Playlist -->
+    <ul id="songList"></ul>
+</div>
+
+<script>
+var taskList = []; 
+var nowPlaying = "";
+var taskButton = document.querySelector("#addSong");
+var taskInput = document.querySelector("#newSong");
+
+// Add song
+function addSong(song) {
+    taskList.push(song);
+}
+
+// Delete song
+function deleteSong(index) {
+    taskList.splice(index, 1);
+    renderList();
+}
+
+// Play song
+function playSong(index) {
+    nowPlaying = taskList[index];
+
+    document.querySelector("#nowPlaying").textContent =
+        "Now Playing: " + nowPlaying;
+
+    // Highlight active song
+    var items = document.querySelectorAll("#songList li");
+    items.forEach(li => li.classList.remove("playing"));
+    items[index].classList.add("playing");
+}
+
+// Render list
+function renderList(){
+    var listElement = document.querySelector("#songList");
+    listElement.innerHTML = "";
+
+    for (var i = 0; i < taskList.length; i++){
+        listElement.innerHTML += `
+            <li>
+                <span>${taskList[i]}</span>
+                <div>
+                    <button onclick="playSong(${i})">▶</button>
+                    <button onclick="deleteSong(${i})">✖</button>
+                </div>
+            </li>
+        `;
+    }
+}
+
+// Add song button
+taskButton.addEventListener("click", function() {
+    var songText = taskInput.value.trim();
+
+    if (songText !== "") {
+        addSong(songText);
+        renderList();
+        taskInput.value = "";
+        taskInput.focus();
+    }
+});
+
+// Example songs
+addSong("song 1 - artist 1");
+addSong("song 2 - artist 2");
+addSong("song 3 - artist 3");
+addSong("song 4 - artist 4");
+addSong("song 5 - artist 5");
+
+renderList();
+</script>
+
+</body>
+</html>

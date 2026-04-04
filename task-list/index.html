@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>we're building a task list</h1>
+    <input type="text" id="newTask" placeholder="new task" />
+    <button id="addTask">New Task</button>
+
+    <h2>Task List</h2>
+    <ul id="taskList">
+        <li>Sample Task 1</li>
+        <li>Sample Task 2</li>
+    </ul>
+
+    <script>
+        //when this button is clicked...
+        var taskButton = document.querySelector("#addTask")
+
+        //take the info from this input..
+        var taskInput = document.querySelector("#newTask")
+
+        //and put it in an LI in here..
+        var taskList = document.querySelector("#taskList")
+
+        taskButton.addEventListener("click", function(){
+            addTask(taskInput.Value)
+        })
+
+        function addTask(newTask){
+            console.log("We're in our function!");
+            var html = "<li>" + newTask + "</li>";
+            taskList.innerHTML += html;    
+        }
+
+        var shoppingList = ['Apples', 'String Cheese', 'Jockey'];
+
+        console.log(shoppingList);
+
+        console.log(shoppingList[0]);
+
+        shoppingList[2] = "Clemetines";
+
+        console.log(shoppingList);
+
+        shoppingList.push("Whiteboard Markets");
+        shoppingList.push("A New TV");
+
+        for (let i=0; i<shoppingList.length; i++){
+            console.log(shoppingList[i]);
+        }
+
+
+    </script>
+</body>
+</html>

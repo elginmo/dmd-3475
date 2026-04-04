@@ -1,0 +1,103 @@
+/* Background */
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: linear-gradient(to bottom, #3a6ea5, #a7c7e7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container */
+.container {
+    width: 360px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.4);
+    text-align: center;
+}
+
+/* Title */
+h1 {
+    color: white;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+/* Now playing */
+#nowPlaying {
+    background: linear-gradient(to bottom, #e6f2ff, #cfe2ff);
+    border: 1px solid #7aa7d9;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: #003366;
+}
+
+/* Input area */
+.inputArea {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Input */
+#newSong {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #7aa7d9;
+    outline: none;
+}
+
+/* Add button */
+#addSong {
+    border-radius: 6px;
+    border: 1px solid #5c8dcf;
+    background: linear-gradient(to bottom, #6ea8fe, #3d7be0);
+    color: white;
+    cursor: pointer;
+}
+
+/* Playlist */
+#songList {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+/* Song item */
+#songList li {
+    background: linear-gradient(to bottom, #ffffff, #dbe9ff);
+    border: 1px solid #7aa7d9;
+    border-radius: 6px;
+    margin: 6px 0;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Buttons */
+#songList button {
+    margin-left: 5px;
+    border-radius: 5px;
+    border: 1px solid #5c8dcf;
+    background: linear-gradient(to bottom, #6ea8fe, #3d7be0);
+    color: white;
+    cursor: pointer;
+}
+
+/* Hover */
+#songList button:hover,
+#addSong:hover {
+    background: linear-gradient(to bottom, #7fb5ff, #4a8cf0);
+}
+
+/* Active song highlight */
+.playing {
+    background: linear-gradient(to bottom, #cfe2ff, #9fc5ff) !important;
+    box-shadow: 0 0 8px #6ea8fe;
+}
