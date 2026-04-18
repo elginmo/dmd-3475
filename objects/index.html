@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Learning about Objects
+    </title>
+</head>
+
+<body>
+    <h1>Learning about Objects</h1>
+
+    <div id="directory">
+        <!-- For every object in the directory variable, print it out here. -->
+    </div>
+
+    <script>
+        var age = 37;
+        var name = "Joel";
+        var list = [];
+        var isOld = true;
+
+        var joel = {
+            name: "Joel",
+            age: 37,
+            list: ['Teach Class', 'Eat Lunch'],
+            isOld: true
+        };
+
+        console.log(joel);
+
+        var directory = [
+            {
+                name: "Joel",
+                role: "Faculty"
+            },
+
+            {
+                name: "Sarah",
+                role: "Student"
+            },
+
+            {
+                name: "Alyssa",
+                role: "Student"
+            }
+        ]
+
+
+        function renderDirectory() {
+            document.getElementById('directory').innerHTML = '';
+
+            directory.forEach(function (person) {
+                var p = document.createElement('p');
+                p.textContent = person.name + ' - ' + person.role;
+                document.getElementById('directory').appendChild(p);
+            });
+        }
+
+
+        renderDirectory();
+
+        // Next, 1) create the ability to add a new person (name and role) to the directory
+        
+
+        // 2) create the ability to edit the name and role of anyone already in the directory
+
+        
+    </script>
+</body>
+
+</html>

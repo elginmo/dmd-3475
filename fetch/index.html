@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning About Fetch</title>
+</head>
+<body>
+    <h1>
+        Learning about fetch
+    </h1>
+
+    <ul id="catFacts">
+
+    </ul>
+
+
+    <script>
+        //JSON
+        
+        var simpleObject = {
+            'name':'Elgin',
+            'role' :'student'
+        }
+
+        console.log(simpleObject);
+
+        var catFacts = [
+            "elgin is a fan of cats",
+            "elgin is not allergic to cats",
+        ];
+
+        function renderList(){
+            const ulElement = document.getElementById('catFacts');
+            console.log(catFacts);
+            catFacts.forEach(fact => {
+                const li = document.createElement('li');
+                li.textContent = fact;
+                ulElement.appendChild(li);
+            });
+        }
+
+        function getCatFacts(count) {
+            fetch(`https://meowfacts.herokuapp.com?count=${count}`)
+            .then(response => response.json())
+            .then(function (data){
+                catFacts = data.data;
+                renderList();
+            });
+        }
+
+        getCatFacts(1);
+
+        function getDogBreeds(){
+            // Get first 10 breeds
+            fetch('https://dogapi.dog/api/v2/breeds?page[size]=10')
+            .then(response => response.json())
+            .then(function(data){
+                var dogBreeds = data.data;
+                
+                console.log(dogBreeds[0]);
+                console.log(dogBreeds[0].attributes.name);
+                console.log(dogBreeds[0].attributes.description);
+                console.log(dogBreeds[0].attributes.female_weight.max);
+                
+            });
+        }
+        getDogBreeds();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dog Breeds</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>Dog Breeds</h1>
+
+  <!-- List (organized in big, medium, small )-->
+  <ul id="breedList"></ul>
+
+  <script>
+    // Grabs the <ul> so list items can be added later on
+    const list = document.getElementById("breedList");
+
+    // Dog API fetch data
+    fetch("https://dogapi.dog/api/v2/breeds")
+
+      //  JSON format conversion
+      .then(response => response.json())
+      .then(data => {
+        // API wraps breeds inside a "data" array
+        const breeds = data.data;
+        // Loop through each breed in the array
+        breeds.forEach(breed => {
+          const li = document.createElement("li");
+
+          // Extract the breed name (inside attributes object)
+          const name = breed.attributes.name;
+
+          // Extract the breed ID
+          const id = breed.id;
+
+          // Add text + link to profile page
+          li.innerHTML = `
+            ${name} 
+            <a href="profile.html?id=${id}">View Profile</a>
+          `;
+
+          // Add the <li> to the <ul> on the page
+          list.appendChild(li);
+        });
+      })
+
+      // log errors
+      .catch(error => {
+        console.error("Error fetching breeds:", error);
+      });
+  </script>
+</body>
+</html>

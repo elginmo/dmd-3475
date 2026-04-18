@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Breed Profile</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>Breed Profile</h1>
+
+  <!-- This is where the selected breed info will appear -->
+  <div id="profile"></div>
+
+  <script>
+    // Get the div where we will display breed details
+    const profileDiv = document.getElementById("profile");
+
+    // Read the query string from the URL (everything after ?)
+    // Example: profile.html?id=abc123
+    const params = new URLSearchParams(window.location.search);
+
+    // Extract the value of "id"
+    const breedId = params.get("id");
+
+    // Fetch all breeds again from the API
+    fetch("https://dogapi.dog/api/v2/breeds")
+
+      // Convert response to JSON
+      .then(response => response.json())
+
+      // Work with the data
+      .then(data => {
+        const breeds = data.data;
+
+        // Find the one breed that matches the ID from the URL
+        const breed = breeds.find(b => b.id === breedId);
+
+        // If a match is found, display it
+        if (breed) {
+          const info = breed.attributes;
+
+          profileDiv.innerHTML = `
+            <h2>${info.name}</h2>
+            <p>${info.description || "No description available."}</p>
+          `;
+        } else {
+          // If no breed matches the ID
+          profileDiv.innerHTML = "<p>Breed not found.</p>";
+        }
+      })
+
+      // Handle errors
+      .catch(error => {
+        console.error("Error fetching breed:", error);
+      });
+  </script>
+</body>
+</html>
