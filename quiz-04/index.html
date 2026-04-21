@@ -22,7 +22,7 @@
       //  JSON format conversion
       .then(response => response.json())
       .then(data => {
-        // API wraps breeds inside a "data" array
+        // API wraps breeds inside a data array
         const breeds = data.data;
         // Loop through each breed in the array
         breeds.forEach(breed => {
