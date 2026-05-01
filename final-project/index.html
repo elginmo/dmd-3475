@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>music visualizer</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- hero section. -->
+  <div id="hero" class="hero">
+
+    <div class="hero-panel">
+
+      <h1>music visualizer</h1>
+      <p>select mode.</p>
+
+      <div class="hero-actions">
+        <button id="selectFileBtn">select file</button>
+        <button id="demoBtn"> demo - laputa by panchiko.</button>
+      </div>
+
+      <!-- file input (required for JS) -->
+      <input type="file" id="upload" accept=".mp3,audio/mpeg" hidden />
+
+      <!-- ambient API feed (placeholder before facts pop up) -->
+      <div class="hero-fact">
+        <span id="factText">loading system data...</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- canvas. -->
+  <div class="scene">
+    <canvas id="visualizer"></canvas>
+  </div>
+
+  <!-- ui (updated to the bottom for better ux) -->
+  <div class="ui">
+
+    <div class="player-ui">
+
+      <!-- track info. -->
+      <div class="track">
+        <span id="trackName">no track loaded</span>
+      </div>
+
+      <!-- controls -->
+      <div class="controls">
+
+        <button id="playPauseBtn">play</button>
+
+        <input
+          type="range"
+          id="seekBar"
+          min="0"
+          max="100"
+          value="0"
+        />
+
+        <button id="changeFileBtn">upload</button>
+
+      </div>
+
+      <!-- playback minute display. -->
+      <div class="time">
+        <span id="currentTime">0:00</span>
+        <span class="divider">/</span>
+        <span id="duration">0:00</span>
+      </div>
+
+    </div>
+
+    <!-- footer/credit-->
+    <div class="credit">
+      elgin moreno g.
+    </div>
+
+    <!-- audio element. -->
+    <audio id="audio"></audio>
+
+  </div>
+
+  <!-- scripts. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
